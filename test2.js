@@ -23,3 +23,54 @@ function alphabetSort(string){
     return word
 }
 console.log(alphabetSort("hello"))
+
+// Q2 Write a JavaScript function that generates all combinations of a string by the parameter
+function comb(string)
+{
+  var arr = [];
+  for (var x = 0, y=1; x < string.length; x++,y++) // definition condition increment
+  {
+    arr[x]=string.substring(x, y);
+  }
+  console.log(arr)
+
+  var combinations = [];
+  var temp= "";
+  var len = Math.pow(2, arr.length);
+  console.log(len)
+
+    for(var i = 0; i < len ; i++)
+    {
+    temp= "";
+        for (var j=0; j<arr.length;j++) {
+            if ((i & Math.pow(2,j))){ 
+            temp += arr[j];
+            console.log(i)
+            console.log(Math.pow(2,j))
+            }
+        }
+         if (temp !== "")
+        {
+        combinations.push(temp);
+        }
+    }
+  console.log(combinations.join("\n"));
+}
+console.log(comb("Dog"))
+
+// Q1 Write a JavaScript function to find the greatest common divisor (gcd) of two positive numbers.
+function gcd(num1,num2){
+    while(num1 != num2){
+        if (num1 > num2)
+        {
+            num1 = num1 - num2;
+        }
+        else
+        {
+            num2 = num2 - num1;
+        }
+    }
+    var gcd = num1;
+    return gcd
+}
+ console.log(gcd(21,14))
